@@ -162,7 +162,7 @@
                                 <span class="bg-amber-400 text-amber-900 text-sm font-bold px-3 py-1 rounded-full animate-pulse">🔥 Only 5 Seats Left!</span>
                             </div>
                             <div class="mt-6">
-                                <button data-upi-link="upi://pay?pa=9880391899@axl&pn=SLearn%20Academy&am=2999&cu=INR&tn=Academic%20Coaching%20Fee" data-course-name="Academic Coaching (5-10th)" class="buy-now-btn block w-full text-center bg-emerald-600 text-white px-6 py-3 rounded-full text-lg font-bold cta-button">Buy Now</button>
+                                <button data-upi-link="upi://pay?pa=9880391899@axl&am=2999&cu=INR&tn=Payment" data-course-name="Academic Coaching (5-10th)" class="buy-now-btn block w-full text-center bg-emerald-600 text-white px-6 py-3 rounded-full text-lg font-bold cta-button">Buy Now</button>
                             </div>
                             <div class="mt-4 text-center">
                                 <a href="#" class="font-semibold invisible">View Full Syllabus</a>
@@ -212,7 +212,7 @@
                                 <span class="bg-amber-400 text-amber-900 text-sm font-bold px-3 py-1 rounded-full animate-pulse">🔥 Only 3 Seats Left!</span>
                             </div>
                             <div class="mt-6">
-                                <button data-upi-link="upi://pay?pa=9880391899@axl&pn=SLearn%20Academy&am=1&cu=INR&tn=Programming%20Course%20Fee" data-course-name="Programming Languages" class="buy-now-btn block w-full text-center bg-sky-600 text-white px-6 py-3 rounded-full text-lg font-bold cta-button">Buy Now</button>
+                                <button data-upi-link="upi://pay?pa=9880391899@axl&am=1&cu=INR&tn=Payment" data-course-name="Programming Languages" class="buy-now-btn block w-full text-center bg-sky-600 text-white px-6 py-3 rounded-full text-lg font-bold cta-button">Buy Now</button>
                             </div>
                             <div class="mt-4 text-center">
                                 <a href="#" id="open-syllabus-modal" class="font-semibold text-emerald-600 hover:text-emerald-800 transition-colors">
@@ -509,11 +509,20 @@
     </div>
     
     <div id="qr-modal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center hidden z-50 modal-backdrop">
-        <div class="bg-white rounded-lg shadow-2xl p-6 max-w-xs w-full text-center transform transition-all scale-95 opacity-0" id="qr-modal-content">
-            <h3 class="text-xl font-bold text-slate-800 mb-2">Scan to Pay</h3>
-            <p class="text-slate-500 mb-4">Use any UPI app to scan this QR code.</p>
-            <div id="qrCodeContainer" class="bg-white rounded-lg"></div>
-            <button id="close-qr-modal" class="mt-6 w-full bg-slate-200 text-slate-800 px-6 py-2.5 rounded-md font-semibold hover:bg-slate-300">Close</button>
+        <div class="bg-white rounded-lg shadow-2xl p-6 max-w-sm w-full text-center transform transition-all scale-95 opacity-0" id="qr-modal-content">
+            <h3 class="text-xl font-bold text-slate-800 mb-2">Complete Your Payment</h3>
+            <p class="text-slate-500 mb-4">Scan the code below with any UPI app.</p>
+            <div id="qrCodeContainer" class="bg-white rounded-lg p-4 border border-slate-200"></div>
+            <div class="mt-4 text-sm text-slate-600 bg-slate-50 p-3 rounded-lg">
+                <p class="font-bold">On Mobile?</p>
+                <p>1. Take a screenshot of the QR code.</p>
+                <p>2. Open your UPI App (GPay, PhonePe, etc).</p>
+                <p>3. Use the "Scan from Gallery" option to pay.</p>
+            </div>
+            <a id="direct-pay-link-mobile" href="#" class="hidden mt-4 w-full block bg-emerald-600 text-white px-6 py-3 rounded-md font-semibold cta-button">
+                Or Pay Directly with App
+            </a>
+            <button id="close-qr-modal" class="mt-3 w-full bg-slate-200 text-slate-800 px-6 py-2.5 rounded-md font-semibold hover:bg-slate-300">Close</button>
         </div>
     </div>
 
@@ -741,21 +750,22 @@
             }).catch(error => console.error('Error sending enrollment data:', error));
             closeModal(paymentInfoModal, paymentInfoModalContent);
             setTimeout(() => {
+                qrCodeContainer.innerHTML = '';
+                new QRCode(qrCodeContainer, {
+                    text: activeUpiLink,
+                    width: 220,
+                    height: 220,
+                    colorDark : "#000000",
+                    colorLight : "#ffffff",
+                    correctLevel : QRCode.CorrectLevel.H
+                });
+                openModal(qrModal, qrModalContent);
                 if (isMobile) {
-                    window.location.href = activeUpiLink;
-                } else {
-                    qrCodeContainer.innerHTML = '';
-                    new QRCode(qrCodeContainer, {
-                        text: activeUpiLink,
-                        width: 200,
-                        height: 200,
-                        colorDark : "#000000",
-                        colorLight : "#ffffff",
-                        correctLevel : QRCode.CorrectLevel.H
-                    });
-                    openModal(qrModal, qrModalContent);
+                    const mobilePayBtn = document.getElementById('direct-pay-link-mobile');
+                    mobilePayBtn.href = activeUpiLink;
+                    mobilePayBtn.classList.remove('hidden');
                 }
-            }, 300);
+            }, 300); 
         });
         closePaymentInfoModalBtn.addEventListener('click', () => closeModal(paymentInfoModal, paymentInfoModalContent));
         paymentInfoModal.addEventListener('click', (e) => {
