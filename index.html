@@ -30,11 +30,9 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.07);
         }
-        /* Style for the modal backdrop */
         .modal-backdrop {
             transition: opacity 0.3s ease;
         }
-        /* Style for the QR code container to center it */
         #qrCodeContainer {
             display: flex;
             justify-content: center;
@@ -185,6 +183,7 @@
                                 <li>Web Development (HTML, CSS, JS)</li>
                                 <li>Logic Building & Problem Solving</li>
                                 <li>Project-Based Learning</li>
+                                <li class="font-semibold text-emerald-700">Certificate of Completion</li>
                             </ul>
                         </div>
                         <div class="bg-slate-50 p-8 rounded-b-xl mt-auto">
@@ -207,6 +206,11 @@
                             </div>
                             <div class="mt-6">
                                 <button data-upi-link="upi://pay?pa=srikanth26@ptyes&pn=SLearn%20Academy&am=3999&cu=INR&tn=Programming%20Course%20Fee" data-course-name="Programming Languages" class="buy-now-btn block w-full text-center bg-sky-600 text-white px-6 py-3 rounded-full text-lg font-bold cta-button">Buy Now</button>
+                            </div>
+                            <div class="mt-4 text-center">
+                                <a href="#" id="open-syllabus-modal" class="font-semibold text-emerald-600 hover:text-emerald-800 transition-colors">
+                                    View Full Syllabus
+                                </a>
                             </div>
                             <div class="mt-4 flex items-center justify-center text-sm text-slate-500">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-green-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
@@ -283,7 +287,7 @@
             </div>
         </section>
 
-      <section id="testimonials" class="py-20 bg-white">
+        <section id="testimonials" class="py-20 bg-white">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl md:text-4xl font-bold text-slate-800">What Our Students & Parents Say</h2>
@@ -313,6 +317,7 @@
                 </div>
             </div>
         </section>
+
         <section id="faq" class="py-20 bg-slate-50">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
@@ -469,6 +474,92 @@
         </div>
     </div>
 
+    <div id="syllabus-modal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center hidden z-50 modal-backdrop">
+        <div class="bg-white rounded-lg shadow-2xl p-6 md:p-8 max-w-3xl w-full max-h-[90vh] overflow-y-auto transform transition-all scale-95 opacity-0" id="syllabus-modal-content">
+            <div class="flex justify-between items-start mb-6 border-b border-slate-200 pb-4">
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-800">Course Syllabus: Programming for Future Innovators</h2>
+                    <p class="text-slate-500 mt-1">A detailed 8-week schedule for beginners.</p>
+                </div>
+                <button id="close-syllabus-modal" class="text-3xl font-light text-slate-500 hover:text-slate-800 leading-none">&times;</button>
+            </div>
+            <div class="space-y-6">
+                <div class="bg-slate-50 p-4 rounded-lg border-l-4 border-emerald-500">
+                    <h3 class="font-bold text-lg text-slate-800">Week 1: The Foundation of Logic & Problem Solving</h3>
+                    <p class="text-sm text-slate-600 mt-1"><strong>Goal:</strong> Understand how programmers think and plan solutions before writing code.</p>
+                    <div class="mt-3 text-sm space-y-2">
+                        <p><strong>Session 1:</strong> Intro to Programming & Algorithms. <strong>Activity:</strong> Write the step-by-step algorithm for a daily task.</p>
+                        <p><strong>Session 2:</strong> Visualizing Logic with Flowcharts & Pseudocode. <strong>Activity:</strong> Create a flowchart to decide whether to carry an umbrella.</p>
+                        <p class="font-semibold mt-2">Weekly Project: Create a flowchart for your complete morning routine.</p>
+                    </div>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-lg border-l-4 border-emerald-500">
+                    <h3 class="font-bold text-lg text-slate-800">Week 2: Introduction to Python</h3>
+                    <p class="text-sm text-slate-600 mt-1"><strong>Goal:</strong> Write your first Python programs and handle user input and data.</p>
+                    <div class="mt-3 text-sm space-y-2">
+                        <p><strong>Session 3:</strong> Your First Code & Variables. <strong>Activity:</strong> Store your name in a variable and print a greeting.</p>
+                        <p><strong>Session 4:</strong> Interacting with the User. <strong>Activity:</strong> Create a program that adds two numbers given by the user.</p>
+                        <p class="font-semibold mt-2">Weekly Project: Build a "Bio Generator" that creates a summary from user input.</p>
+                    </div>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-lg border-l-4 border-emerald-500">
+                    <h3 class="font-bold text-lg text-slate-800">Week 3: Logic and Control Flow in Python</h3>
+                    <p class="text-sm text-slate-600 mt-1"><strong>Goal:</strong> Learn to make decisions and repeat actions in your programs.</p>
+                    <div class="mt-3 text-sm space-y-2">
+                        <p><strong>Session 5:</strong> Making Decisions with `if` Statements. <strong>Activity:</strong> Code a program that checks if a user is old enough to vote.</p>
+                        <p><strong>Session 6:</strong> Repeating Actions with Loops. <strong>Activity:</strong> Use a `for` loop to print numbers 1 to 10.</p>
+                        <p class="font-semibold mt-2">Weekly Project: Create a number guessing game with "too high" / "too low" hints.</p>
+                    </div>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-lg border-l-4 border-emerald-500">
+                    <h3 class="font-bold text-lg text-slate-800">Week 4: Project Week - Python Text-Based Game</h3>
+                    <p class="text-sm text-slate-600 mt-1"><strong>Goal:</strong> Combine all your Python skills to build a complete, interactive game.</p>
+                    <div class="mt-3 text-sm space-y-2">
+                        <p><strong>Session 7:</strong> Functions & Project Planning. <strong>Activity:</strong> Write a simple function that greets a user.</p>
+                        <p><strong>Session 8:</strong> Project Building Workshop & Debugging. <strong>Activity:</strong> Build the first part of the adventure game together.</p>
+                        <p class="font-semibold mt-2">Weekly Project: Finish and submit your complete Python Text-Based Adventure Game.</p>
+                    </div>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-lg border-l-4 border-sky-500">
+                    <h3 class="font-bold text-lg text-slate-800">Week 5: Building the Web’s Skeleton with HTML</h3>
+                    <p class="text-sm text-slate-600 mt-1"><strong>Goal:</strong> Understand how websites are built and create the structure for your own webpage.</p>
+                    <div class="mt-3 text-sm space-y-2">
+                        <p><strong>Session 9:</strong> Intro to HTML & Essential Tags. <strong>Activity:</strong> Create your first `index.html` file with a heading and paragraph.</p>
+                        <p><strong>Session 10:</strong> Structuring Content with Images, Links & Lists. <strong>Activity:</strong> Add a picture and a link to your page.</p>
+                        <p class="font-semibold mt-2">Weekly Project: Build a 2-page "About Me" website with a linked "Hobbies" page.</p>
+                    </div>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-lg border-l-4 border-sky-500">
+                    <h3 class="font-bold text-lg text-slate-800">Week 6: Styling the Web with CSS</h3>
+                    <p class="text-sm text-slate-600 mt-1"><strong>Goal:</strong> Learn to apply colors, fonts, and layouts to make your website beautiful.</p>
+                    <div class="mt-3 text-sm space-y-2">
+                        <p><strong>Session 11:</strong> Intro to CSS & Styling Text. <strong>Activity:</strong> Change the colors and fonts of your website.</p>
+                        <p><strong>Session 12:</strong> The Box Model & Layout with Flexbox. <strong>Activity:</strong> Center your content and arrange it in columns.</p>
+                        <p class="font-semibold mt-2">Weekly Project: Fully style your 2-page website using CSS.</p>
+                    </div>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-lg border-l-4 border-sky-500">
+                    <h3 class="font-bold text-lg text-slate-800">Week 7: Making Websites Interactive with JavaScript</h3>
+                    <p class="text-sm text-slate-600 mt-1"><strong>Goal:</strong> Use JavaScript to make your website respond to user actions.</p>
+                    <div class="mt-3 text-sm space-y-2">
+                        <p><strong>Session 13:</strong> Intro to JavaScript & the DOM. <strong>Activity:</strong> Select a page element with JS and log it to the console.</p>
+                        <p><strong>Session 14:</strong> Handling Events & Manipulating Content. <strong>Activity:</strong> Create a button that changes text on the page.</p>
+                        <p class="font-semibold mt-2">Weekly Project: Add a "dark mode" toggle button to your website.</p>
+                    </div>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-lg border-l-4 border-sky-500">
+                    <h3 class="font-bold text-lg text-slate-800">Week 8: Capstone Project & Wrap-Up</h3>
+                    <p class="text-sm text-slate-600 mt-1"><strong>Goal:</strong> Integrate all your web skills to build a final, impressive interactive application.</p>
+                    <div class="mt-3 text-sm space-y-2">
+                        <p><strong>Session 15:</strong> Capstone Project Planning Workshop. <strong>Activity:</strong> Outline the features for your chosen capstone project.</p>
+                        <p><strong>Session 16:</strong> Final Q&A and Next Steps. <strong>Activity:</strong> Showcase your project progress and get feedback.</p>
+                        <p class="font-semibold mt-2">Final Project: Complete and submit your capstone web application (e.g., To-Do List, Interactive Quiz).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <script>
         // --- Universal Modal Logic ---
@@ -486,7 +577,6 @@
             setTimeout(() => modal.classList.add('hidden'), 300);
         };
 
-
         // --- Mobile Menu Logic ---
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -500,7 +590,6 @@
         // --- Animated Counters ---
         const counters = document.querySelectorAll('[data-target]');
         const speed = 200; 
-
         const animateCounter = (counter) => {
             const target = +counter.getAttribute('data-target');
             const updateCount = () => {
@@ -515,7 +604,6 @@
             };
             updateCount();
         };
-
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -531,40 +619,54 @@
         const demoModalContent = document.getElementById('demo-modal-content');
         const openDemoModalBtn = document.getElementById('open-demo-modal');
         const closeDemoModalBtn = document.getElementById('close-demo-modal');
-        
         openDemoModalBtn.addEventListener('click', () => openModal(demoModal, demoModalContent));
         closeDemoModalBtn.addEventListener('click', () => closeModal(demoModal, demoModalContent));
         demoModal.addEventListener('click', (e) => {
             if (e.target === demoModal) closeModal(demoModal, demoModalContent);
         });
         
+        // --- Syllabus Modal Logic ---
+        const syllabusModal = document.getElementById('syllabus-modal');
+        const syllabusModalContent = document.getElementById('syllabus-modal-content');
+        const openSyllabusBtn = document.getElementById('open-syllabus-modal');
+        const closeSyllabusBtn = document.getElementById('close-syllabus-modal');
+        if (openSyllabusBtn) {
+            openSyllabusBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal(syllabusModal, syllabusModalContent);
+            });
+        }
+        if (closeSyllabusBtn) {
+            closeSyllabusBtn.addEventListener('click', () => closeModal(syllabusModal, syllabusModalContent));
+        }
+        if (syllabusModal) {
+            syllabusModal.addEventListener('click', (e) => {
+                if (e.target === syllabusModal) closeModal(syllabusModal, syllabusModalContent);
+            });
+        }
+        
         // --- Countdown Timer Logic ---
         document.querySelectorAll('.countdown-timer').forEach(timer => {
             const daysToAdd = parseInt(timer.dataset.endDate);
             const countDownDate = new Date();
             countDownDate.setDate(countDownDate.getDate() + daysToAdd);
-
             const x = setInterval(() => {
                 const now = new Date().getTime();
                 const distance = countDownDate - now;
-
                 const days = Math.floor(distance / (1000 * 60 * 60 * 24));
                 const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
                 timer.querySelector('.days').innerHTML = String(days).padStart(2, '0');
                 timer.querySelector('.hours').innerHTML = String(hours).padStart(2, '0');
                 timer.querySelector('.minutes').innerHTML = String(minutes).padStart(2, '0');
                 timer.querySelector('.seconds').innerHTML = String(seconds).padStart(2, '0');
-
                 if (distance < 0) {
                     clearInterval(x);
                     timer.innerHTML = "<p class='text-red-400 font-bold'>Offer Expired</p>";
                 }
             }, 1000);
         });
-
 
         // --- Payment Flow Logic ---
         const paymentInfoModal = document.getElementById('payment-info-modal');
@@ -576,37 +678,27 @@
         const qrCodeContainer = document.getElementById('qrCodeContainer');
         const closeQrModalBtn = document.getElementById('close-qr-modal');
         const buyNowButtons = document.querySelectorAll('.buy-now-btn');
-
         const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
         let activeUpiLink = '';
-        let activeCourseName = ''; // To store the selected course name
-
+        let activeCourseName = '';
         buyNowButtons.forEach(button => {
             button.addEventListener('click', (event) => {
                 event.preventDefault();
                 activeUpiLink = button.dataset.upiLink;
-                activeCourseName = button.dataset.courseName; // Capture course name
+                activeCourseName = button.dataset.courseName;
                 openModal(paymentInfoModal, paymentInfoModalContent);
             });
         });
-        
         paymentInfoForm.addEventListener('submit', (event) => {
             event.preventDefault();
-            
             const formData = new FormData(paymentInfoForm);
-            formData.append('course', activeCourseName); // Add selected course to form data
-
-            // Silently send the data to your new Formspree endpoint
+            formData.append('course', activeCourseName);
             fetch('https://formspree.io/f/mvgbbjrd', {
                 method: 'POST',
                 body: formData,
                 headers: { 'Accept': 'application/json' }
             }).catch(error => console.error('Error sending enrollment data:', error));
-
-            // Don't wait for the fetch to complete. Proceed with payment immediately.
             closeModal(paymentInfoModal, paymentInfoModalContent);
-            
-            // Wait for the first modal to close before triggering payment
             setTimeout(() => {
                 if (isMobile) {
                     window.location.href = activeUpiLink;
@@ -622,14 +714,12 @@
                     });
                     openModal(qrModal, qrModalContent);
                 }
-            }, 300); // 300ms matches the modal transition time
+            }, 300);
         });
-
         closePaymentInfoModalBtn.addEventListener('click', () => closeModal(paymentInfoModal, paymentInfoModalContent));
         paymentInfoModal.addEventListener('click', (e) => {
             if (e.target === paymentInfoModal) closeModal(paymentInfoModal, paymentInfoModalContent);
         });
-
         closeQrModalBtn.addEventListener('click', () => closeModal(qrModal, qrModalContent));
         qrModal.addEventListener('click', (e) => {
             if (e.target === qrModal) closeModal(qrModal, qrModalContent);
@@ -641,12 +731,10 @@
             question.addEventListener('click', () => {
                 const answer = question.nextElementSibling;
                 const icon = question.querySelector('svg');
-
                 if (answer.style.maxHeight) {
                     answer.style.maxHeight = null;
                     icon.style.transform = 'rotate(0deg)';
                 } else {
-                    // Close all other open answers
                     document.querySelectorAll('.faq-answer').forEach(ans => {
                         ans.style.maxHeight = null;
                         ans.previousElementSibling.querySelector('svg').style.transform = 'rotate(0deg)';
