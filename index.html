@@ -12,28 +12,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
     <style>
+        /* * Production Tip: For best performance, use the Tailwind CLI to build and purge your CSS.
+         * This creates a much smaller file containing only the styles you actually use.
+         */
         body {
             font-family: 'Inter', sans-serif;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-        .cta-button {
-            transition: all 0.3s ease;
-        }
+        .cta-button { transition: all 0.3s ease; }
         .cta-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 15px rgba(55, 65, 81, 0.2);
         }
-        .card-hover {
-            transition: all 0.3s ease;
-        }
+        .card-hover { transition: all 0.3s ease; }
         .card-hover:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.07);
         }
-        .modal-backdrop {
-            transition: opacity 0.3s ease;
-        }
+        .modal { transition: opacity 0.3s ease; }
+        .modal-content { transition: all 0.3s ease; }
         #qrCodeContainer {
             display: flex;
             justify-content: center;
@@ -45,14 +43,7 @@
             overflow: hidden;
             transition: max-height 0.3s ease-in-out;
         }
-        #enrollment-notification {
-            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-        }
-        #chatbot-window {
-            opacity: 0;
-            transform: translateY(10px);
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
+        #enrollment-notification { transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; }
         .grayscale-logo {
             filter: grayscale(100%);
             opacity: 0.6;
@@ -79,7 +70,7 @@
                 <a href="#contact" class="bg-emerald-600 text-white px-5 py-2.5 rounded-full font-semibold cta-button">Contact Us</a>
             </div>
             <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-slate-800 focus:outline-none">
+                <button id="mobile-menu-button" class="text-slate-800 focus:outline-none" aria-label="Toggle navigation menu">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                     </svg>
@@ -123,7 +114,7 @@
                  <div class="bg-gradient-to-r from-emerald-500 to-green-600 rounded-xl shadow-lg p-8 md:p-12 text-center text-white">
                     <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to Get Started?</h2>
                     <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">Experience our teaching style firsthand. Book a free demo class today and see the difference we can make.</p>
-                    <button id="open-demo-modal" class="bg-white text-emerald-600 px-10 py-4 rounded-full font-bold text-lg cta-button transform hover:scale-105 transition-transform">
+                    <button id="open-demo-modal-btn" class="bg-white text-emerald-600 px-10 py-4 rounded-full font-bold text-lg cta-button transform hover:scale-105 transition-transform">
                         Book a Free Demo
                     </button>
                 </div>
@@ -156,11 +147,7 @@
                         <div class="p-8 flex-grow">
                             <div class="flex items-center mb-5">
                                 <div class="bg-emerald-100 text-emerald-600 w-16 h-16 rounded-full flex items-center justify-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                        <path d="M12 14l9-5-9-5-9 5 9 5z" />
-                                        <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-5.998 12.078 12.078 0 01.665-6.479L12 14z" />
-                                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-5.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222 4 2.222V20M1 12v7a2 2 0 002 2h18a2 2 0 002-2v-7" />
-                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 14l9-5-9-5-9 5 9 5z" /><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-5.998 12.078 12.078 0 01.665-6.479L12 14z" /><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-5.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222 4 2.222V20M1 12v7a2 2 0 002 2h18a2 2 0 002-2v-7" /></svg>
                                 </div>
                                 <h3 class="text-2xl font-bold ml-4 text-slate-800">Academic Coaching</h3>
                             </div>
@@ -173,9 +160,9 @@
                             </ul>
                         </div>
                         <div class="bg-slate-50 p-8 rounded-b-xl mt-auto">
-                             <div class="mb-4 text-center">
+                            <div class="mb-4 text-center">
                                 <p class="text-red-500 font-semibold text-sm mb-2">Special Price Ends In:</p>
-                                <div class="countdown-timer text-2xl font-bold flex justify-center space-x-2 text-slate-700" data-end-date="3">
+                                <div class="countdown-timer text-2xl font-bold flex justify-center space-x-2 text-slate-700" data-end-days="3">
                                     <div class="flex flex-col items-center"><span class="days">00</span><span class="text-xs font-normal">Days</span></div><span>:</span>
                                     <div class="flex flex-col items-center"><span class="hours">00</span><span class="text-xs font-normal">Hours</span></div><span>:</span>
                                     <div class="flex flex-col items-center"><span class="minutes">00</span><span class="text-xs font-normal">Mins</span></div><span>:</span>
@@ -202,14 +189,11 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="bg-white rounded-xl shadow-lg card-hover flex flex-col border-t-4 border-sky-500">
                         <div class="p-8 flex-grow">
                              <div class="flex items-center mb-5">
                                 <div class="bg-sky-100 text-sky-600 w-16 h-16 rounded-full flex items-center justify-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
                                 </div>
                                 <h3 class="text-2xl font-bold ml-4 text-slate-800">Programming Languages</h3>
                             </div>
@@ -225,7 +209,7 @@
                         <div class="bg-slate-50 p-8 rounded-b-xl mt-auto">
                             <div class="mb-4 text-center">
                                 <p class="text-red-500 font-semibold text-sm mb-2">Special Price Ends In:</p>
-                                <div class="countdown-timer text-2xl font-bold flex justify-center space-x-2 text-slate-700" data-end-date="3">
+                                <div class="countdown-timer text-2xl font-bold flex justify-center space-x-2 text-slate-700" data-end-days="3">
                                     <div class="flex flex-col items-center"><span class="days">00</span><span class="text-xs font-normal">Days</span></div><span>:</span>
                                     <div class="flex flex-col items-center"><span class="hours">00</span><span class="text-xs font-normal">Hours</span></div><span>:</span>
                                     <div class="flex flex-col items-center"><span class="minutes">00</span><span class="text-xs font-normal">Mins</span></div><span>:</span>
@@ -244,9 +228,7 @@
                                 <button data-upi-link="upi://pay?pa=dr.ait@ybl&am=1&cu=INR&tn=Payment" data-course-name="Programming Languages" class="buy-now-btn block w-full text-center bg-sky-600 text-white px-6 py-3 rounded-full text-lg font-bold cta-button">Buy Now</button>
                             </div>
                             <div class="mt-4 text-center">
-                                <a href="#" id="open-syllabus-modal" class="font-semibold text-emerald-600 hover:text-emerald-800 transition-colors">
-                                    View Full Syllabus
-                                </a>
+                                <a href="#" id="open-syllabus-modal-btn" class="font-semibold text-emerald-600 hover:text-emerald-800 transition-colors">View Full Syllabus</a>
                             </div>
                             <p class="text-xs text-slate-500 mt-2 text-center">Using PhonePe? If the button fails, please try scanning the QR code on a desktop.</p>
                             <div class="mt-4 flex items-center justify-center text-sm text-slate-500">
@@ -304,21 +286,18 @@
                     <p class="text-lg text-slate-600 mt-2">The passionate educators behind our students' success.</p>
                 </div>
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                    <!-- Tutor Card 1 -->
                     <div class="bg-white rounded-lg shadow-lg text-center p-8 card-hover">
                         <img class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-emerald-200" src="https://i.pravatar.cc/150?u=tutor1" alt="Tutor Photo">
                         <h3 class="text-xl font-bold text-slate-800">Priya Sharma</h3>
                         <p class="text-emerald-600 font-semibold mb-2">M.Sc. in Mathematics</p>
                         <p class="text-slate-500 text-sm">With over 8 years of teaching experience, Priya makes complex math concepts simple and enjoyable for students of all levels.</p>
                     </div>
-                    <!-- Tutor Card 2 -->
                     <div class="bg-white rounded-lg shadow-lg text-center p-8 card-hover">
                         <img class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-sky-200" src="https://i.pravatar.cc/150?u=tutor2" alt="Tutor Photo">
                         <h3 class="text-xl font-bold text-slate-800">Rajesh Kumar</h3>
                         <p class="text-sky-600 font-semibold mb-2">B.Tech in Computer Science</p>
                         <p class="text-slate-500 text-sm">Rajesh is a software developer and a passionate coding mentor who specializes in making programming fun and accessible for beginners.</p>
                     </div>
-                    <!-- Tutor Card 3 -->
                     <div class="bg-white rounded-lg shadow-lg text-center p-8 card-hover">
                         <img class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-amber-200" src="https://i.pravatar.cc/150?u=tutor3" alt="Tutor Photo">
                         <h3 class="text-xl font-bold text-slate-800">Ananya Reddy</h3>
@@ -419,9 +398,7 @@
                     <div class="md:flex">
                         <div class="md:w-1/3 bg-emerald-500 p-8 text-white flex flex-col justify-center items-center text-center">
                             <div class="bg-white/20 p-4 rounded-full mb-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.136a1.76 1.76 0 011.164-2.288l5.518-1.913a1.76 1.76 0 012.288 1.164z" />
-                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.136a1.76 1.76 0 011.164-2.288l5.518-1.913a1.76 1.76 0 012.288 1.164z" /></svg>
                             </div>
                             <h3 class="text-2xl font-bold">Marketing & Sales Intern</h3>
                             <p class="font-medium mt-2">Internship</p>
@@ -441,12 +418,8 @@
                                     <span class="font-semibold text-slate-600">₹5000 + Incentives</span>
                                 </div>
                             </div>
-
                             <h4 class="font-bold text-lg text-slate-800 mb-2">About the Role:</h4>
-                            <p class="text-slate-600 mb-6">
-                                Are you passionate about marketing, sales, and education? Promote Slearn Academy's courses, develop marketing campaigns, and engage with potential leads to gain valuable real-world experience.
-                            </p>
-                            
+                            <p class="text-slate-600 mb-6">Are you passionate about marketing, sales, and education? Promote Slearn Academy's courses, develop marketing campaigns, and engage with potential leads to gain valuable real-world experience.</p>
                             <div class="grid md:grid-cols-2 gap-6">
                                 <div>
                                     <h5 class="font-bold text-md text-slate-800 mb-2">✅ Key Responsibilities</h5>
@@ -467,7 +440,6 @@
                                     </ul>
                                 </div>
                             </div>
-                            
                             <div class="mt-8 text-center">
                                 <a href="https://forms.gle/ZHVBTJPSoAAfunpE9" target="_blank" class="bg-emerald-600 text-white px-8 py-3 rounded-full font-bold text-lg cta-button">Apply Now</a>
                                 <p class="text-xs text-slate-500 mt-2">Click the button to fill out our application form.</p>
@@ -486,29 +458,29 @@
                 </div>
                 <div class="max-w-3xl mx-auto space-y-4">
                     <div class="bg-white rounded-lg shadow-sm border border-slate-200">
-                        <button class="faq-question w-full flex justify-between items-center text-left p-6 font-semibold text-lg text-slate-800">
+                        <button class="faq-question w-full flex justify-between items-center text-left p-6 font-semibold text-lg text-slate-800" aria-expanded="false" aria-controls="faq-answer-1">
                             <span>What is the batch size for each class?</span>
                             <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
-                        <div class="faq-answer px-6 pb-6 text-slate-600">
+                        <div class="faq-answer px-6 pb-6 text-slate-600" id="faq-answer-1">
                             <p>We believe in personalized attention. To ensure every student gets the focus they deserve, we keep our batch sizes small, typically with a maximum of 8-10 students per class.</p>
                         </div>
                     </div>
                     <div class="bg-white rounded-lg shadow-sm border border-slate-200">
-                        <button class="faq-question w-full flex justify-between items-center text-left p-6 font-semibold text-lg text-slate-800">
+                        <button class="faq-question w-full flex justify-between items-center text-left p-6 font-semibold text-lg text-slate-800" aria-expanded="false" aria-controls="faq-answer-2">
                             <span>What happens if my child misses a class?</span>
                             <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
-                        <div class="faq-answer px-6 pb-6 text-slate-600">
+                        <div class="faq-answer px-6 pb-6 text-slate-600" id="faq-answer-2">
                             <p>We strongly encourage attending all live classes for the best interactive experience. If a student misses a session, we provide the class notes and they can ask any questions during the next session to catch up. Please note that we do not provide recordings of the classes.</p>
                         </div>
                     </div>
                     <div class="bg-white rounded-lg shadow-sm border border-slate-200">
-                        <button class="faq-question w-full flex justify-between items-center text-left p-6 font-semibold text-lg text-slate-800">
+                        <button class="faq-question w-full flex justify-between items-center text-left p-6 font-semibold text-lg text-slate-800" aria-expanded="false" aria-controls="faq-answer-3">
                             <span>What technology or software do we need?</span>
                             <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
-                        <div class="faq-answer px-6 pb-6 text-slate-600">
+                        <div class="faq-answer px-6 pb-6 text-slate-600" id="faq-answer-3">
                             <p>All you need is a stable internet connection, a computer or laptop with a webcam and microphone, and a modern web browser like Google Chrome. For programming courses, we will guide you through the simple process of installing any necessary free software.</p>
                         </div>
                     </div>
@@ -564,7 +536,6 @@
                 </div>
             </div>
         </section>
-
     </main>
 
     <footer class="bg-slate-800 text-white pt-12 pb-8">
@@ -605,32 +576,20 @@
         </div>
     </footer>
 
-    <!-- Enrollment Notification Pop-up -->
-    <div id="enrollment-notification" class="fixed bottom-5 left-5 bg-white rounded-lg shadow-xl p-4 flex items-center space-x-4 z-50 opacity-0 transform translate-y-10">
-        <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center">
-            <svg class="w-7 h-7 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
-        </div>
-        <div>
-            <p class="font-bold text-slate-800" id="notification-text"></p>
-            <p class="text-sm text-slate-500" id="notification-time"></p>
-        </div>
-        <button id="close-notification" class="text-slate-400 hover:text-slate-600">&times;</button>
-    </div>
-
-    <div id="demo-modal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center hidden z-50 modal-backdrop">
-        <div class="bg-white rounded-lg shadow-2xl p-8 max-w-sm w-full text-center transform transition-all scale-95 opacity-0" id="demo-modal-content">
+    <div id="demo-modal" class="modal fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center hidden z-50">
+        <div class="modal-content bg-white rounded-lg shadow-2xl p-8 max-w-sm w-full text-center transform scale-95 opacity-0">
             <h2 class="text-2xl font-bold text-slate-800 mb-4">Book Your Free Demo!</h2>
             <p class="text-slate-600 mb-6">Call us now to schedule your free trial class and experience our teaching firsthand.</p>
             <div class="bg-emerald-50 border-2 border-dashed border-emerald-200 rounded-lg p-4 mb-6">
                 <p class="text-slate-600 text-lg">Contact Number:</p>
                 <p class="text-emerald-600 text-3xl font-bold tracking-widest">+91 8123054408</p>
             </div>
-            <button id="close-demo-modal" class="w-full bg-slate-200 text-slate-800 px-6 py-3 rounded-md font-semibold hover:bg-slate-300">Close</button>
+            <button data-close-modal class="w-full bg-slate-200 text-slate-800 px-6 py-3 rounded-md font-semibold hover:bg-slate-300">Close</button>
         </div>
     </div>
     
-    <div id="payment-info-modal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center hidden z-50 modal-backdrop">
-        <div class="bg-white rounded-lg shadow-2xl p-8 max-w-sm w-full transform transition-all scale-95 opacity-0" id="payment-info-modal-content">
+    <div id="payment-info-modal" class="modal fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center hidden z-50">
+        <div class="modal-content bg-white rounded-lg shadow-2xl p-8 max-w-sm w-full transform scale-95 opacity-0">
             <h3 class="text-2xl font-bold text-slate-800 mb-2">Student Information</h3>
             <p class="text-slate-500 mb-6">Please enter your details to proceed.</p>
             <form id="payment-info-form">
@@ -645,12 +604,12 @@
                 <input type="hidden" name="Referral_ID" id="paymentReferralIdField">
                 <button type="submit" class="w-full bg-emerald-600 text-white px-6 py-3 rounded-md font-semibold cta-button">Proceed to Pay</button>
             </form>
-             <button id="close-payment-info-modal" class="mt-3 w-full text-slate-600 py-2 rounded-md font-medium hover:bg-slate-100">Cancel</button>
+             <button data-close-modal class="mt-3 w-full text-slate-600 py-2 rounded-md font-medium hover:bg-slate-100">Cancel</button>
         </div>
     </div>
     
-    <div id="qr-modal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center hidden z-50 modal-backdrop">
-        <div class="bg-white rounded-lg shadow-2xl p-6 max-w-sm w-full text-center transform transition-all scale-95 opacity-0" id="qr-modal-content">
+    <div id="qr-modal" class="modal fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center hidden z-50">
+        <div class="modal-content bg-white rounded-lg shadow-2xl p-6 max-w-sm w-full text-center transform scale-95 opacity-0">
             <h3 class="text-xl font-bold text-slate-800 mb-2">Complete Your Payment</h3>
             <p class="text-slate-500 mb-4">Scan the code below with any UPI app.</p>
             <div id="qrCodeContainer" class="bg-white rounded-lg p-4 border border-slate-200"></div>
@@ -660,21 +619,19 @@
                 <p>2. Open your UPI App (GPay, PhonePe, etc).</p>
                 <p>3. Use the "Scan from Gallery" option to pay.</p>
             </div>
-            <a id="direct-pay-link-mobile" href="#" class="hidden mt-4 w-full block bg-emerald-600 text-white px-6 py-3 rounded-md font-semibold cta-button">
-                Or Pay Directly with App
-            </a>
-            <button id="close-qr-modal" class="mt-3 w-full bg-slate-200 text-slate-800 px-6 py-2.5 rounded-md font-semibold hover:bg-slate-300">Close</button>
+            <a id="direct-pay-link-mobile" href="#" class="hidden mt-4 w-full block bg-emerald-600 text-white px-6 py-3 rounded-md font-semibold cta-button">Or Pay Directly with App</a>
+            <button data-close-modal class="mt-3 w-full bg-slate-200 text-slate-800 px-6 py-2.5 rounded-md font-semibold hover:bg-slate-300">Close</button>
         </div>
     </div>
 
-    <div id="syllabus-modal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center hidden z-50 modal-backdrop">
-        <div class="bg-white rounded-lg shadow-2xl p-6 md:p-8 max-w-3xl w-full max-h-[90vh] overflow-y-auto transform transition-all scale-95 opacity-0" id="syllabus-modal-content">
+    <div id="syllabus-modal" class="modal fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center hidden z-50">
+        <div class="modal-content bg-white rounded-lg shadow-2xl p-6 md:p-8 max-w-3xl w-full max-h-[90vh] overflow-y-auto transform scale-95 opacity-0">
             <div class="flex justify-between items-start mb-6 border-b border-slate-200 pb-4">
                 <div>
                     <h2 class="text-2xl font-bold text-slate-800">Course Syllabus: Programming for Future Innovators</h2>
                     <p class="text-slate-500 mt-1">A detailed 8-week schedule for beginners.</p>
                 </div>
-                <button id="close-syllabus-modal" class="text-3xl font-light text-slate-500 hover:text-slate-800 leading-none">&times;</button>
+                <button data-close-modal class="text-3xl font-light text-slate-500 hover:text-slate-800 leading-none">&times;</button>
             </div>
             <div class="space-y-6">
                 <div class="bg-slate-50 p-4 rounded-lg border-l-4 border-emerald-500">
@@ -752,121 +709,225 @@
             </div>
         </div>
     </div>
+    
+    <div id="enrollment-notification" class="fixed bottom-5 left-5 bg-white rounded-lg shadow-xl p-4 flex items-center space-x-4 z-50 opacity-0 transform translate-y-10">
+        <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center">
+            <svg class="w-7 h-7 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+        </div>
+        <div>
+            <p class="font-bold text-slate-800" id="notification-text"></p>
+            <p class="text-sm text-slate-500" id="notification-time"></p>
+        </div>
+        <button id="close-notification-btn" class="text-slate-400 hover:text-slate-600">&times;</button>
+    </div>
 
-   
-        // --- Countdown Timer Logic ---
-        document.querySelectorAll('.countdown-timer').forEach(timer => {
-            const daysToAdd = parseInt(timer.dataset.endDate);
-            const countDownDate = new Date();
-            countDownDate.setDate(countDownDate.getDate() + daysToAdd);
-            const x = setInterval(() => {
-                const now = new Date().getTime();
-                const distance = countDownDate - now;
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                timer.querySelector('.days').innerHTML = String(days).padStart(2, '0');
-                timer.querySelector('.hours').innerHTML = String(hours).padStart(2, '0');
-                timer.querySelector('.minutes').innerHTML = String(minutes).padStart(2, '0');
-                timer.querySelector('.seconds').innerHTML = String(seconds).padStart(2, '0');
-                if (distance < 0) {
-                    clearInterval(x);
-                    timer.innerHTML = "<p class='text-red-400 font-bold'>Offer Expired</p>";
-                }
-            }, 1000);
-        });
-
-        // --- Payment Flow Logic ---
-        const paymentInfoModal = document.getElementById('payment-info-modal');
-        const paymentInfoModalContent = document.getElementById('payment-info-modal-content');
-        const paymentInfoForm = document.getElementById('payment-info-form');
-        const closePaymentInfoModalBtn = document.getElementById('close-payment-info-modal');
-        const qrModal = document.getElementById('qr-modal');
-        const qrModalContent = document.getElementById('qr-modal-content');
-        const qrCodeContainer = document.getElementById('qrCodeContainer');
-        const closeQrModalBtn = document.getElementById('close-qr-modal');
-        const buyNowButtons = document.querySelectorAll('.buy-now-btn');
-        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-        let activeUpiLink = '';
-        let activeCourseName = '';
-        buyNowButtons.forEach(button => {
-            button.addEventListener('click', (event) => {
-                event.preventDefault();
-                activeUpiLink = button.dataset.upiLink;
-                activeCourseName = button.dataset.courseName;
-                openModal(paymentInfoModal, paymentInfoModalContent);
-            });
-        });
-        paymentInfoForm.addEventListener('submit', (event) => {
-            event.preventDefault();
-            const formData = new FormData(paymentInfoForm);
-            formData.append('course', activeCourseName);
-            fetch('https://formspree.io/f/mvgbbjrd', {
-                method: 'POST',
-                body: formData,
-                headers: { 'Accept': 'application/json' }
-            }).catch(error => console.error('Error sending enrollment data:', error));
-            closeModal(paymentInfoModal, paymentInfoModalContent);
-            setTimeout(() => {
-                qrCodeContainer.innerHTML = '';
-                new QRCode(qrCodeContainer, {
-                    text: activeUpiLink,
-                    width: 220,
-                    height: 220,
-                    colorDark : "#000000",
-                    colorLight : "#ffffff",
-                    correctLevel : QRCode.CorrectLevel.H
-                });
-                openModal(qrModal, qrModalContent);
-                if (isMobile) {
-                    const mobilePayBtn = document.getElementById('direct-pay-link-mobile');
-                    mobilePayBtn.href = activeUpiLink;
-                    mobilePayBtn.classList.remove('hidden');
-                }
-            }, 300); 
-        });
-        closePaymentInfoModalBtn.addEventListener('click', () => closeModal(paymentInfoModal, paymentInfoModalContent));
-        paymentInfoModal.addEventListener('click', (e) => {
-            if (e.target === paymentInfoModal) closeModal(paymentInfoModal, paymentInfoModalContent);
-        });
-        closeQrModalBtn.addEventListener('click', () => closeModal(qrModal, qrModalContent));
-        qrModal.addEventListener('click', (e) => {
-            if (e.target === qrModal) closeModal(qrModal, qrModalContent);
-        });
-        
-        // --- FAQ Accordion Logic ---
-        const faqQuestions = document.querySelectorAll('.faq-question');
-        faqQuestions.forEach(question => {
-            question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                const icon = question.querySelector('svg');
-                if (answer.style.maxHeight) {
-                    answer.style.maxHeight = null;
-                    icon.style.transform = 'rotate(0deg)';
-                } else {
-                    document.querySelectorAll('.faq-answer').forEach(ans => {
-                        ans.style.maxHeight = null;
-                        ans.previousElementSibling.querySelector('svg').style.transform = 'rotate(0deg)';
-                    });
-                    answer.style.maxHeight = answer.scrollHeight + "px";
-                    icon.style.transform = 'rotate(180deg)';
-                } 
-            });
-        });
-
-        // --- Enrollment Notification Logic ---
+    <script>
         document.addEventListener('DOMContentLoaded', () => {
+
+            // --- DOM Element Caching ---
+            // Cache frequently accessed elements to avoid repeated DOM queries.
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuBtn = document.getElementById('mobile-menu-button');
+            const modals = {
+                demo: document.getElementById('demo-modal'),
+                paymentInfo: document.getElementById('payment-info-modal'),
+                qr: document.getElementById('qr-modal'),
+                syllabus: document.getElementById('syllabus-modal')
+            };
+            const paymentInfoForm = document.getElementById('payment-info-form');
+            const qrCodeContainer = document.getElementById('qrCodeContainer');
+            const countdownTimers = document.querySelectorAll('.countdown-timer');
+            const faqQuestions = document.querySelectorAll('.faq-question');
+
+            // --- Mobile Menu ---
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // --- Reusable Modal Logic ---
+            const openModal = (modal) => {
+                if (!modal) return;
+                const modalContent = modal.querySelector('.modal-content');
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                // Use setTimeout to allow the display property to apply before starting the transition
+                setTimeout(() => {
+                    modal.classList.remove('opacity-0');
+                    if(modalContent) modalContent.classList.remove('scale-95', 'opacity-0');
+                }, 10);
+            };
+
+            const closeModal = (modal) => {
+                if (!modal) return;
+                const modalContent = modal.querySelector('.modal-content');
+                modal.classList.add('opacity-0');
+                if(modalContent) modalContent.classList.add('scale-95', 'opacity-0');
+                // Wait for the transition to finish before hiding the modal completely
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                }, 300); // Should match the transition duration
+            };
+            
+            // Event listeners for opening modals
+            document.getElementById('open-demo-modal-btn').addEventListener('click', () => openModal(modals.demo));
+            document.getElementById('open-syllabus-modal-btn').addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal(modals.syllabus);
+            });
+            
+            // Generic event listeners for closing modals
+            document.querySelectorAll('[data-close-modal]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const modal = btn.closest('.modal');
+                    closeModal(modal);
+                });
+            });
+
+            // Close modal by clicking on the backdrop
+            Object.values(modals).forEach(modal => {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        closeModal(modal);
+                    }
+                });
+            });
+
+            // --- OPTIMIZED Countdown Timer Logic ---
+            // Use a single interval to update all timers for better performance.
+            const timerInstances = [];
+            countdownTimers.forEach(timerEl => {
+                const daysToAdd = parseInt(timerEl.dataset.endDays, 10);
+                const endDate = new Date();
+                endDate.setDate(endDate.getDate() + daysToAdd);
+                timerInstances.push({
+                    element: timerEl,
+                    endDate: endDate.getTime(),
+                    daysEl: timerEl.querySelector('.days'),
+                    hoursEl: timerEl.querySelector('.hours'),
+                    minutesEl: timerEl.querySelector('.minutes'),
+                    secondsEl: timerEl.querySelector('.seconds'),
+                });
+            });
+
+            const updateAllTimers = () => {
+                const now = new Date().getTime();
+                timerInstances.forEach(timer => {
+                    const distance = timer.endDate - now;
+
+                    if (distance < 0) {
+                        timer.element.innerHTML = "<p class='text-red-400 font-bold'>Offer Expired</p>";
+                        // Optionally, we can remove this timer from the array to stop processing it.
+                        return;
+                    }
+
+                    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                    
+                    timer.daysEl.textContent = String(days).padStart(2, '0');
+                    timer.hoursEl.textContent = String(hours).padStart(2, '0');
+                    timer.minutesEl.textContent = String(minutes).padStart(2, '0');
+                    timer.secondsEl.textContent = String(seconds).padStart(2, '0');
+                });
+            };
+
+            if (timerInstances.length > 0) {
+                updateAllTimers(); // Initial call
+                setInterval(updateAllTimers, 1000); // Update every second
+            }
+
+            // --- Payment Flow Logic ---
+            let activeUpiLink = '';
+            let activeCourseName = '';
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+            document.querySelectorAll('.buy-now-btn').forEach(button => {
+                button.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    activeUpiLink = button.dataset.upiLink;
+                    activeCourseName = button.dataset.courseName;
+                    openModal(modals.paymentInfo);
+                });
+            });
+
+            paymentInfoForm.addEventListener('submit', (event) => {
+                event.preventDefault();
+                const formData = new FormData(paymentInfoForm);
+                formData.append('course', activeCourseName);
+                
+                // Send enrollment data to Formspree
+                fetch('https://formspree.io/f/mvgbbjrd', {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                }).catch(error => console.error('Error sending enrollment data:', error));
+
+                closeModal(modals.paymentInfo);
+                
+                setTimeout(() => {
+                    qrCodeContainer.innerHTML = ''; // Clear previous QR code
+                    new QRCode(qrCodeContainer, {
+                        text: activeUpiLink,
+                        width: 220,
+                        height: 220,
+                        colorDark : "#000000",
+                        colorLight : "#ffffff",
+                        correctLevel : QRCode.CorrectLevel.H
+                    });
+
+                    const mobilePayBtn = document.getElementById('direct-pay-link-mobile');
+                    if (isMobile) {
+                        mobilePayBtn.href = activeUpiLink;
+                        mobilePayBtn.classList.remove('hidden');
+                    } else {
+                        mobilePayBtn.classList.add('hidden');
+                    }
+                    
+                    openModal(modals.qr);
+                }, 350); // Delay to allow close animation to complete
+            });
+
+            // --- FAQ Accordion Logic with Accessibility ---
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = document.getElementById(question.getAttribute('aria-controls'));
+                    const isExpanded = question.getAttribute('aria-expanded') === 'true';
+
+                    // Close all other FAQs first for a clean accordion effect
+                    faqQuestions.forEach(q => {
+                        if (q !== question) {
+                            q.setAttribute('aria-expanded', 'false');
+                            document.getElementById(q.getAttribute('aria-controls')).style.maxHeight = null;
+                            q.querySelector('svg').style.transform = 'rotate(0deg)';
+                        }
+                    });
+
+                    // Toggle the clicked FAQ
+                    if (isExpanded) {
+                        question.setAttribute('aria-expanded', 'false');
+                        answer.style.maxHeight = null;
+                        question.querySelector('svg').style.transform = 'rotate(0deg)';
+                    } else {
+                        question.setAttribute('aria-expanded', 'true');
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                        question.querySelector('svg').style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+
+            // --- Enrollment Notification Logic ---
             const notification = document.getElementById('enrollment-notification');
             const notificationText = document.getElementById('notification-text');
             const notificationTime = document.getElementById('notification-time');
-            const closeBtn = document.getElementById('close-notification');
-
+            const closeNotificationBtn = document.getElementById('close-notification-btn');
+            
             const names = ['Priya', 'Amit', 'Sneha', 'Rahul', 'Deepika', 'Vikram'];
             const cities = ['Bengaluru', 'Mumbai', 'Delhi', 'Chennai', 'Pune', 'Hyderabad'];
             const courses = ['Academic Coaching', 'Programming Languages'];
             
-            let notificationInterval;
+            let notificationTimeout;
 
             const showNotification = () => {
                 const randomName = names[Math.floor(Math.random() * names.length)];
@@ -879,27 +940,27 @@
 
                 notification.classList.remove('opacity-0', 'translate-y-10');
                 
-                setTimeout(hideNotification, 5000); // Hide after 5 seconds
+                // Hide after 5 seconds
+                notificationTimeout = setTimeout(hideNotification, 5000); 
             };
 
             const hideNotification = () => {
                 notification.classList.add('opacity-0', 'translate-y-10');
-                 // Wait for animation to finish before setting the next one
+                // Wait for animation to finish before scheduling the next one
                 setTimeout(() => {
                     const randomDelay = Math.random() * 10000 + 8000; // 8-18 seconds
-                    notificationInterval = setTimeout(showNotification, randomDelay);
+                    notificationTimeout = setTimeout(showNotification, randomDelay);
                 }, 500);
             };
             
-            closeBtn.addEventListener('click', () => {
-                clearTimeout(notificationInterval);
+            closeNotificationBtn.addEventListener('click', () => {
+                clearTimeout(notificationTimeout);
                 notification.classList.add('opacity-0', 'translate-y-10');
             });
 
-            setTimeout(showNotification, 4000); // Initial delay
+            // Initial delay before first notification
+            notificationTimeout = setTimeout(showNotification, 4000); 
         });
-
     </script>
 </body>
 </html>
-
