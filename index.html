@@ -207,7 +207,7 @@
                              <i class="fas fa-envelope h-6 w-6 text-emerald-600 mr-4 mt-1"></i>
                              <div>
                                  <h4 class="font-bold text-lg">Email Us</h4>
-                                 <p class="text-gray-600">info@slearnacademy.com</p>
+                                 <p class="text-gray-600">srikanth.techcoder@gmail.com</p>
                              </div>
                         </div>
                     </div>
@@ -281,113 +281,87 @@
         </div>
     </div>
     
-  <button id="contact-us-btn" class="bg-emerald-600 text-white px-6 py-2.5 rounded-full font-semibold cta-button">Contact Us</button>
-
-<!-- Contact Modal -->
-<div id="contact-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden modal-backdrop">
-    <div class="bg-white p-10 rounded-lg shadow-xl w-full max-w-md text-center modal-content relative" id="contact-modal-content">
-        <button data-close-modal="contact-modal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-3xl leading-none">&times;</button>
-        <i class="fas fa-phone-alt text-5xl text-emerald-500 mb-6"></i>
-        <h3 class="text-2xl font-bold text-gray-800 mb-2">Contact Us</h3>
-        <p class="text-gray-600 mb-6">For admissions or any queries, call us directly:</p>
-        <a href="tel:+918123054408" class="text-4xl font-bold text-gray-900 tracking-wider hover:text-emerald-600 transition-colors">+91 8123054408</a>
+    <div id="contact-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden modal-backdrop">
+        <div class="bg-white p-10 rounded-lg shadow-xl w-full max-w-md text-center modal-content relative" id="contact-modal-content">
+            <button data-close-modal="contact-modal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-3xl leading-none">&times;</button>
+            <i class="fas fa-phone-alt text-5xl text-emerald-500 mb-6"></i>
+            <h3 class="text-2xl font-bold text-gray-800 mb-2">Contact Us</h3>
+            <p class="text-gray-600 mb-6">For admissions or any queries, call us directly.</p>
+            <a href="tel:+918123054408" class="text-4xl font-bold text-gray-900 tracking-wider hover:text-emerald-600 transition-colors">+91 8123054408</a>
+        </div>
     </div>
-</div>
-// --- Contact Modal Logic ---
-const contactBtn = document.getElementById('contact-us-btn');
-const contactModal = document.getElementById('contact-modal');
-const contactModalContent = document.getElementById('contact-modal-content');
-
-contactBtn.addEventListener('click', () => {
-    contactModal.classList.remove('hidden');
-    setTimeout(() => {
-        contactModalContent.classList.remove('scale-95', 'opacity-0');
-    }, 10);
-});
-
-contactModal.addEventListener('click', (e) => {
-    if (e.target === contactModal || e.target.closest('[data-close-modal="contact-modal"]')) {
-        contactModalContent.classList.add('scale-95', 'opacity-0');
-        setTimeout(() => contactModal.classList.add('hidden'), 200);
-    }
-});
-
 
     <script>
-        // --- Countdown Timer ---
-        const countdownElement = document.getElementById('countdown-timer');
-        if (countdownElement) {
-            let fiveDaysFromNow = new Date().getTime() + (5 * 24 * 60 * 60 * 1000);
-            let countdownInterval = setInterval(() => {
-                let now = new Date().getTime();
-                let distance = fiveDaysFromNow - now;
-                let days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-                if (distance < 0) {
-                    clearInterval(countdownInterval);
-                    document.getElementById('offer-banner').innerHTML = "Offer has ended!";
-                }
-            }, 1000);
-        }
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- Countdown Timer ---
+            const countdownElement = document.getElementById('countdown-timer');
+            if (countdownElement) {
+                let fiveDaysFromNow = new Date().getTime() + (5 * 24 * 60 * 60 * 1000);
+                let countdownInterval = setInterval(() => {
+                    let now = new Date().getTime();
+                    let distance = fiveDaysFromNow - now;
+                    let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                    countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+                    if (distance < 0) {
+                        clearInterval(countdownInterval);
+                        document.getElementById('offer-banner').innerHTML = "Offer has ended!";
+                    }
+                }, 1000);
+            }
 
-        // --- Generic Modal Logic ---
-        function setupModal(modalId, openBtnId) {
-            const modal = document.getElementById(modalId);
-            const openBtn = document.getElementById(openBtnId);
-            const modalContent = document.getElementById(`${modalId}-content`);
-            
-            function openModal() {
+            // --- Generic Modal Open/Close Logic ---
+            const openModal = (modal) => {
+                const modalContent = modal.querySelector('.modal-content');
                 modal.classList.remove('hidden');
                 setTimeout(() => {
                     modalContent.classList.remove('scale-95', 'opacity-0');
                 }, 10);
-            }
+            };
 
-            function closeModal() {
+            const closeModal = (modal) => {
+                const modalContent = modal.querySelector('.modal-content');
                 modalContent.classList.add('scale-95', 'opacity-0');
                 setTimeout(() => {
-                     modal.classList.add('hidden');
+                    modal.classList.add('hidden');
                 }, 200);
-            }
+            };
 
-            if(openBtn) openBtn.addEventListener('click', openModal);
-            
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal || e.target.closest(`[data-close-modal="${modalId}"]`)) {
-                    closeModal();
-                }
+            // Setup Contact Modal
+            const contactModal = document.getElementById('contact-modal');
+            const contactBtn = document.getElementById('contact-us-btn');
+            contactBtn.addEventListener('click', () => openModal(contactModal));
+
+            // Setup Payment Modal
+            const paymentModal = document.getElementById('payment-modal');
+            const buyNowBtns = document.querySelectorAll('.buy-now-btn');
+            buyNowBtns.forEach(button => {
+                button.addEventListener('click', () => {
+                    const courseName = button.dataset.courseName;
+                    const coursePrice = button.dataset.coursePrice;
+                    
+                    document.getElementById('modal-course-name').innerText = courseName;
+                    document.getElementById('modal-course-price').innerText = `₹${coursePrice}`;
+                    
+                    const upiLink = `upi://pay?pa=dr.ait@ybl&pn=SLearn%20Academy&am=${coursePrice}&cu=INR&tn=Payment%20for%20${encodeURIComponent(courseName)}`;
+                    
+                    const qrCodeContainer = document.getElementById('qrCodeContainer');
+                    qrCodeContainer.innerHTML = '';
+                    new QRCode(qrCodeContainer, { text: upiLink, width: 200, height: 200 });
+
+                    openModal(paymentModal);
+                });
             });
-        }
 
-        // Setup Modals
-        setupModal('contact-modal', 'contact-us-btn');
-        setupModal('payment-modal');
-
-        // --- Payment Modal & QR Code Logic ---
-        const buyNowBtns = document.querySelectorAll('.buy-now-btn');
-        buyNowBtns.forEach(button => {
-            button.addEventListener('click', () => {
-                const courseName = button.dataset.courseName;
-                const coursePrice = button.dataset.coursePrice;
-                
-                document.getElementById('modal-course-name').innerText = courseName;
-                document.getElementById('modal-course-price').innerText = `₹${coursePrice}`;
-                
-                const upiLink = `upi://pay?pa=dr.ait@ybl&pn=SLearn%20Academy&am=${coursePrice}&cu=INR&tn=Payment%20for%20${encodeURIComponent(courseName)}`;
-                
-                const qrCodeContainer = document.getElementById('qrCodeContainer');
-                qrCodeContainer.innerHTML = '';
-                new QRCode(qrCodeContainer, { text: upiLink, width: 200, height: 200 });
-
-                const paymentModal = document.getElementById('payment-modal');
-                const paymentModalContent = document.getElementById('payment-modal-content');
-                paymentModal.classList.remove('hidden');
-                setTimeout(() => {
-                    paymentModalContent.classList.remove('scale-95', 'opacity-0');
-                }, 10);
+            // Add closing listeners to all modals
+            document.querySelectorAll('.modal-backdrop').forEach(modal => {
+                 modal.addEventListener('click', (e) => {
+                    if (e.target === modal || e.target.closest('[data-close-modal]')) {
+                        closeModal(modal);
+                    }
+                });
             });
         });
     </script>
