@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SLearn Academy | Trusted Online Tuition & Coding Courses</title>
     <meta name="description" content="Join SLearn Academy for trusted, expert-led online tuition and coding courses. We are dedicated to building a strong academic foundation and the skills for tomorrow.">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%2310b981%22></rect><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2260%22 font-weight=%22bold%22 fill=%22white%22>S</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%2310b981%22></rect><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2260%22 font-weight=%22bold%22 fill=%22white%22>S</text></svg>">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -57,6 +57,11 @@
         .tutor-card:hover img {
             filter: grayscale(0%);
         }
+        .modal-content {
+            transform: scale(0.95);
+            opacity: 0;
+            transition: all 0.2s ease-in-out;
+        }
     </style>
 </head>
 <body class="bg-white text-gray-800">
@@ -76,7 +81,7 @@
                 <a href="#courses" class="text-gray-600 hover:text-emerald-600 font-medium">Courses</a>
                 <a href="#tutors" class="text-gray-600 hover:text-emerald-600 font-medium">Our Tutors</a>
                 <a href="#testimonials" class="text-gray-600 hover:text-emerald-600 font-medium">Testimonials</a>
-                <a href="#contact" class="bg-emerald-600 text-white px-6 py-2.5 rounded-full font-semibold cta-button">Contact Us</a>
+                <button id="contact-us-btn" class="bg-emerald-600 text-white px-6 py-2.5 rounded-full font-semibold cta-button">Contact Us</button>
             </div>
             <button id="mobile-menu-button" class="md:hidden text-gray-800 focus:outline-none">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
@@ -87,7 +92,7 @@
             <a href="#courses" class="block py-3 px-5 text-sm hover:bg-gray-50">Courses</a>
             <a href="#tutors" class="block py-3 px-5 text-sm hover:bg-gray-50">Our Tutors</a>
             <a href="#testimonials" class="block py-3 px-5 text-sm hover:bg-gray-50">Testimonials</a>
-            <a href="#contact" class="block py-3 px-5 text-sm hover:bg-gray-50">Contact Us</a>
+            <a href="#contact" class="block py-3 px-5 text-sm hover:bg-gray-50">Book a Demo</a>
         </div>
     </header>
 
@@ -292,8 +297,8 @@
 
     <footer class="bg-gray-800 text-white pt-16 pb-12">
         <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-3 gap-8 mb-8">
-                <div>
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-2">
                     <h3 class="text-xl font-bold mb-4">SLearn Academy</h3>
                     <p class="text-gray-400">Your trusted partner in academic excellence and future-ready skills.</p>
                 </div>
@@ -311,20 +316,31 @@
                      <ul class="space-y-2">
                         <li><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Refund Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Disclaimer</a></li>
                     </ul>
                 </div>
             </div>
-             <div class="mt-10 pt-6 border-t border-gray-700 text-center text-gray-500 text-sm">
-                <p>&copy; 2025 SLearn Academy. All Rights Reserved. Bengaluru, India.</p>
+            <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <div class="text-gray-500 text-sm text-center md:text-left">
+                    <p>&copy; 2025 SLearn Academy. All Rights Reserved. Bengaluru, India.</p>
+                </div>
+                <div class="flex space-x-4 mt-6 md:mt-0">
+                    <h3 class="text-lg font-semibold mr-4">Connect With Us:</h3>
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter fa-lg"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin-in fa-lg"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram fa-lg"></i></a>
+                </div>
             </div>
         </div>
     </footer>
 
     <div id="payment-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden modal-backdrop">
-        <div class="bg-white p-8 rounded-lg shadow-xl w-full max-w-sm text-center transform transition-all scale-95 opacity-0" id="modal-content">
+        <div class="bg-white p-8 rounded-lg shadow-xl w-full max-w-sm text-center modal-content" id="payment-modal-content">
             <div class="flex justify-between items-center mb-4">
                 <h3 class="text-xl font-bold text-gray-800" id="modal-course-name">Course Name</h3>
-                <button id="close-modal-btn" class="text-gray-500 hover:text-gray-800 text-3xl leading-none">&times;</button>
+                <button data-close-modal="payment-modal" class="text-gray-500 hover:text-gray-800 text-3xl leading-none">&times;</button>
             </div>
             <p class="text-gray-600 mb-4">Scan the QR code below with any UPI app to pay</p>
             <div id="qrCodeContainer" class="mb-4"></div>
@@ -332,19 +348,20 @@
             <p class="text-sm text-gray-500 mt-2">UPI ID: dr.ait@ybl</p>
         </div>
     </div>
-
+    
+    <div id="contact-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden modal-backdrop">
+        <div class="bg-white p-10 rounded-lg shadow-xl w-full max-w-md text-center modal-content" id="contact-modal-content">
+            <div class="flex justify-end">
+                 <button data-close-modal="contact-modal" class="text-gray-500 hover:text-gray-800 text-3xl leading-none">&times;</button>
+            </div>
+            <i class="fas fa-phone-alt text-5xl text-emerald-500 mb-6"></i>
+            <h3 class="text-2xl font-bold text-gray-800 mb-2">Contact Us</h3>
+            <p class="text-gray-600 mb-6">For admissions or any queries, please call us directly.</p>
+            <a href="tel:+918123054408" class="text-4xl font-bold text-gray-900 tracking-wider hover:text-emerald-600 transition-colors">+91 8123054408</a>
+        </div>
+    </div>
 
     <script>
-        // --- Mobile Menu Logic ---
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
-        });
-
         // --- Countdown Timer ---
         const countdownElement = document.getElementById('countdown-timer');
         let fiveDaysFromNow = new Date().getTime() + (5 * 24 * 60 * 60 * 1000);
@@ -362,14 +379,47 @@
             }
         }, 1000);
 
+        // --- Generic Modal Logic ---
+        function setupModal(modalId, openBtnId) {
+            const modal = document.getElementById(modalId);
+            const modalContent = document.getElementById(`${modalId}-content`);
+            const openBtn = document.getElementById(openBtnId);
+            
+            function openModal() {
+                modal.classList.remove('hidden');
+                setTimeout(() => {
+                    modalContent.classList.remove('scale-95', 'opacity-0');
+                }, 10);
+            }
+
+            function closeModal() {
+                modalContent.classList.add('scale-95', 'opacity-0');
+                setTimeout(() => {
+                     modal.classList.add('hidden');
+                }, 200);
+            }
+
+            if(openBtn) {
+                openBtn.addEventListener('click', openModal);
+            }
+            
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal || e.target.closest(`[data-close-modal="${modalId}"]`)) {
+                    closeModal();
+                }
+            });
+
+            return { openModal, closeModal };
+        }
+
+        // Setup Contact Modal
+        setupModal('contact-modal', 'contact-us-btn');
+
         // --- Payment Modal & QR Code Logic ---
         const paymentModal = document.getElementById('payment-modal');
-        const modalContent = document.getElementById('modal-content');
-        const closeModalBtn = document.getElementById('close-modal-btn');
+        const paymentModalContent = document.getElementById('payment-modal-content');
         const buyNowBtns = document.querySelectorAll('.buy-now-btn');
-        const qrCodeContainer = document.getElementById('qrCodeContainer');
-        let qrCodeInstance = null;
-
+        
         buyNowBtns.forEach(button => {
             button.addEventListener('click', () => {
                 const courseName = button.dataset.courseName;
@@ -379,38 +429,27 @@
                 document.getElementById('modal-course-price').innerText = `₹${coursePrice}`;
                 
                 const upiLink = `upi://pay?pa=dr.ait@ybl&pn=SLearn%20Academy&am=${coursePrice}&cu=INR&tn=Payment%20for%20${encodeURIComponent(courseName)}`;
-
-                qrCodeContainer.innerHTML = '';
                 
-                qrCodeInstance = new QRCode(qrCodeContainer, {
-                    text: upiLink,
-                    width: 200,
-                    height: 200,
-                    colorDark : "#000000",
-                    colorLight : "#ffffff",
-                    correctLevel : QRCode.CorrectLevel.H
-                });
+                const qrCodeContainer = document.getElementById('qrCodeContainer');
+                qrCodeContainer.innerHTML = '';
+                new QRCode(qrCodeContainer, { text: upiLink, width: 200, height: 200 });
 
                 paymentModal.classList.remove('hidden');
                 setTimeout(() => {
-                    modalContent.classList.remove('scale-95', 'opacity-0');
+                    paymentModalContent.classList.remove('scale-95', 'opacity-0');
                 }, 10);
             });
         });
-
-        function closeModal() {
-            modalContent.classList.add('scale-95', 'opacity-0');
-            setTimeout(() => {
-                 paymentModal.classList.add('hidden');
-            }, 300);
-        }
-
-        closeModalBtn.addEventListener('click', closeModal);
+        
         paymentModal.addEventListener('click', (e) => {
-            if (e.target === paymentModal) {
-                closeModal();
+            if (e.target === paymentModal || e.target.closest(`[data-close-modal="payment-modal"]`)) {
+                 paymentModalContent.classList.add('scale-95', 'opacity-0');
+                setTimeout(() => {
+                     paymentModal.classList.add('hidden');
+                }, 200);
             }
         });
+
     </script>
 </body>
 </html>
