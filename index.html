@@ -281,15 +281,37 @@
         </div>
     </div>
     
-    <div id="contact-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden modal-backdrop">
-        <div class="bg-white p-10 rounded-lg shadow-xl w-full max-w-md text-center modal-content relative" id="contact-modal-content">
-            <button data-close-modal="contact-modal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-3xl leading-none">&times;</button>
-            <i class="fas fa-phone-alt text-5xl text-emerald-500 mb-6"></i>
-            <h3 class="text-2xl font-bold text-gray-800 mb-2">Contact Us</h3>
-            <p class="text-gray-600 mb-6">For admissions or any queries, call us directly.</p>
-            <a href="tel:+918123054408" class="text-4xl font-bold text-gray-900 tracking-wider hover:text-emerald-600 transition-colors">+91 8123054408</a>
-        </div>
+  <button id="contact-us-btn" class="bg-emerald-600 text-white px-6 py-2.5 rounded-full font-semibold cta-button">Contact Us</button>
+
+<!-- Contact Modal -->
+<div id="contact-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden modal-backdrop">
+    <div class="bg-white p-10 rounded-lg shadow-xl w-full max-w-md text-center modal-content relative" id="contact-modal-content">
+        <button data-close-modal="contact-modal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-3xl leading-none">&times;</button>
+        <i class="fas fa-phone-alt text-5xl text-emerald-500 mb-6"></i>
+        <h3 class="text-2xl font-bold text-gray-800 mb-2">Contact Us</h3>
+        <p class="text-gray-600 mb-6">For admissions or any queries, call us directly:</p>
+        <a href="tel:+918123054408" class="text-4xl font-bold text-gray-900 tracking-wider hover:text-emerald-600 transition-colors">+91 8123054408</a>
     </div>
+</div>
+// --- Contact Modal Logic ---
+const contactBtn = document.getElementById('contact-us-btn');
+const contactModal = document.getElementById('contact-modal');
+const contactModalContent = document.getElementById('contact-modal-content');
+
+contactBtn.addEventListener('click', () => {
+    contactModal.classList.remove('hidden');
+    setTimeout(() => {
+        contactModalContent.classList.remove('scale-95', 'opacity-0');
+    }, 10);
+});
+
+contactModal.addEventListener('click', (e) => {
+    if (e.target === contactModal || e.target.closest('[data-close-modal="contact-modal"]')) {
+        contactModalContent.classList.add('scale-95', 'opacity-0');
+        setTimeout(() => contactModal.classList.add('hidden'), 200);
+    }
+});
+
 
     <script>
         // --- Countdown Timer ---
