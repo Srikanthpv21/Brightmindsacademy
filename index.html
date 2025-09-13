@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SLearn Academy | Trusted Online Tuition & Coding Courses</title>
     <meta name="description" content="Join SLearn Academy for trusted, expert-led online tuition and coding courses. We are dedicated to building a strong academic foundation and the skills for tomorrow.">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%2310b981%22></rect><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2260%22 font-weight=%22bold%22 fill=%22white%22>S</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%2310b981%22></rect><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2260%22 font-weight=%22bold%22 fill=%22white%22>S</text></svg>">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,29 +33,8 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.07);
         }
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-in-out;
-        }
         .modal-backdrop {
             transition: opacity 0.3s ease;
-        }
-        #qrCodeContainer {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
-            background-color: white;
-        }
-        .tutor-card img {
-            filter: grayscale(100%);
-            transition: filter 0.3s ease;
-        }
-        .tutor-card:hover img {
-            filter: grayscale(0%);
         }
         .modal-content {
             transform: scale(0.95);
@@ -91,13 +70,12 @@
             <a href="#mission" class="block py-3 px-5 text-sm hover:bg-gray-50">Our Mission</a>
             <a href="#courses" class="block py-3 px-5 text-sm hover:bg-gray-50">Courses</a>
             <a href="#tutors" class="block py-3 px-5 text-sm hover:bg-gray-50">Our Tutors</a>
-            <a href="#testimonials" class="block py-3 px-5 text-sm hover:bg-gray-50">Testimonials</a>
             <a href="#contact" class="block py-3 px-5 text-sm hover:bg-gray-50">Book a Demo</a>
         </div>
     </header>
 
     <main>
-        <section class="bg-gray-50 py-24 md:py-32">
+         <section class="bg-gray-50 py-24 md:py-32">
             <div class="container mx-auto px-6 text-center">
                 <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 mb-6 leading-tight">Education You Can Trust. Results You Can See.</h1>
                 <p class="text-lg md:text-xl text-gray-600 mb-10 max-w-3xl mx-auto">We provide expert online tuition and future-ready coding courses designed to build a strong academic foundation and genuine skills for tomorrow.</p>
@@ -108,20 +86,7 @@
             </div>
         </section>
 
-        <section class="py-12 bg-white">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-sm font-bold uppercase text-gray-500 tracking-widest mb-6">OUR PARTNERS & AFFILIATES</h2>
-                <div class="flex justify-center items-center space-x-12 opacity-60">
-                    <img src="https://via.placeholder.com/150x50/CCCCCC/FFFFFF?text=Partner+Logo" alt="Partner Logo 1" class="h-10">
-                    <img src="https://via.placeholder.com/150x50/CCCCCC/FFFFFF?text=Featured+In" alt="Partner Logo 2" class="h-10">
-                    <img src="https://via.placeholder.com/150x50/CCCCCC/FFFFFF?text=Award+2025" alt="Partner Logo 3" class="h-10">
-                    <img src="https://via.placeholder.com/150x50/CCCCCC/FFFFFF?text=School+Logo" alt="Partner Logo 4" class="h-10">
-                </div>
-            </div>
-        </section>
-
-
-        <section id="mission" class="py-20 bg-gray-50">
+        <section id="mission" class="py-20 bg-white">
             <div class="container mx-auto px-6">
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div>
@@ -129,14 +94,13 @@
                     </div>
                     <div>
                         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Mission: Accessible, High-Quality Education</h2>
-                        <p class="mb-4 text-gray-600 text-lg">We started SLearn Academy with a simple belief: every student deserves access to personalized, high-quality education, regardless of their location. Our mission is to make learning engaging, effective, and inspiring.</p>
-                        <p class="text-gray-600 text-lg">We are a team of passionate educators from Bengaluru, dedicated to helping students build not just knowledge, but also the confidence and critical thinking skills needed to succeed in the modern world.</p>
+                        <p class="mb-4 text-gray-600 text-lg">We started SLearn Academy with a simple belief: every student deserves access to personalized, high-quality education. Our mission is to make learning engaging, effective, and inspiring.</p>
                     </div>
                 </div>
             </div>
         </section>
-
-        <section id="courses" class="py-20 bg-white">
+        
+        <section id="courses" class="py-20 bg-gray-50">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Our Core Programs</h2>
@@ -150,10 +114,9 @@
                             <ul class="space-y-2 text-gray-600 list-disc list-inside">
                                 <li>Mathematics & Science</li>
                                 <li>English & Social Studies</li>
-                                <li>Personalized Study Plans</li>
                             </ul>
                         </div>
-                        <div class="bg-gray-50 p-8 rounded-b-xl mt-auto">
+                        <div class="bg-gray-100 p-8 rounded-b-xl mt-auto">
                             <div class="text-center mb-6">
                                 <span class="text-lg text-gray-400 line-through">₹6120</span>
                                 <span class="text-4xl font-bold text-gray-800 ml-2">₹2999</span>
@@ -169,10 +132,9 @@
                             <ul class="space-y-2 text-gray-600 list-disc list-inside">
                                 <li>Python for Beginners</li>
                                 <li>Web Development (HTML, CSS, JS)</li>
-                                <li>Certificate of Completion</li>
                             </ul>
                         </div>
-                        <div class="bg-gray-50 p-8 rounded-b-xl mt-auto">
+                        <div class="bg-gray-100 p-8 rounded-b-xl mt-auto">
                             <div class="text-center mb-6">
                                 <span class="text-lg text-gray-400 line-through">₹10415</span>
                                 <span class="text-4xl font-bold text-gray-800 ml-2">₹4999</span>
@@ -185,111 +147,30 @@
             </div>
         </section>
 
-        <section id="tutors" class="py-20 bg-gray-50">
+        <section id="tutors" class="py-20 bg-white">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Meet Our Expert Tutors</h2>
-                    <p class="text-lg text-gray-600 mt-2">The passionate educators dedicated to your child's success.</p>
+                    <p class="text-lg text-gray-600 mt-2">Passionate educators dedicated to your child's success.</p>
                 </div>
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                    <div class="bg-white p-8 rounded-lg text-center card-hover tutor-card">
-                        <img class="w-32 h-32 rounded-full mx-auto mb-4" src="https://ui-avatars.com/api/?name=Priya+Kumar&background=dcfce7&color=166534&size=128" alt="Tutor Priya Kumar">
-                        <h3 class="text-xl font-bold">Priya Kumar</h3>
-                        <p class="text-emerald-600 font-semibold mb-2">M.Sc in Mathematics</p>
-                        <p class="text-gray-600">With over 10 years of teaching experience, Priya makes complex math concepts simple and enjoyable for all students.</p>
                     </div>
-                    <div class="bg-white p-8 rounded-lg text-center card-hover tutor-card">
-                        <img class="w-32 h-32 rounded-full mx-auto mb-4" src="https://ui-avatars.com/api/?name=Arjun+Reddy&background=dcfce7&color=166534&size=128" alt="Tutor Arjun Reddy">
-                        <h3 class="text-xl font-bold">Arjun Reddy</h3>
-                        <p class="text-emerald-600 font-semibold mb-2">B.Tech, Software Engineer</p>
-                        <p class="text-gray-600">Arjun brings real-world industry experience to his coding classes, focusing on project-based learning and problem-solving.</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-lg text-center card-hover tutor-card">
-                        <img class="w-32 h-32 rounded-full mx-auto mb-4" src="https://ui-avatars.com/api/?name=Sneha+Patel&background=dcfce7&color=166534&size=128" alt="Tutor Sneha Patel">
-                        <h3 class="text-xl font-bold">Sneha Patel</h3>
-                        <p class="text-emerald-600 font-semibold mb-2">M.A. in English Literature</p>
-                        <p class="text-gray-600">Sneha helps students build strong language skills and a love for literature through interactive and engaging sessions.</p>
-                    </div>
-                </div>
             </div>
         </section>
-
-        <section id="testimonials" class="py-20 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">What Our Community Says</h2>
-                </div>
-                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                    <div class="bg-gray-50 p-8 rounded-lg card-hover border-l-4 border-emerald-500">
-                        <p class="text-gray-600 mb-6">"The personalized attention my son received has made a huge difference. His grades and confidence in Science have improved significantly. The tutors are patient and knowledgeable. Highly recommended!"</p>
-                        <div class="flex items-center">
-                              <img src="https://i.pravatar.cc/60?u=parent1" alt="Parent avatar" class="w-14 h-14 rounded-full mr-4">
-                            <div>
-                                <p class="font-bold text-gray-800">Anjali Sharma</p>
-                                <p class="text-sm text-gray-500">Parent of a 8th Grader, Bengaluru</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-gray-50 p-8 rounded-lg card-hover border-l-4 border-emerald-500">
-                        <p class="text-gray-600 mb-6">"I finally understand web development! The tutors make complex topics like CSS and JavaScript so easy and fun. The project-based approach helped me build a real portfolio."</p>
-                        <div class="flex items-center">
-                            <img src="https://i.pravatar.cc/60?u=student1" alt="Student avatar" class="w-14 h-14 rounded-full mr-4">
-                            <div>
-                                <p class="font-bold text-gray-800">Priya Singh</p>
-                                <p class="text-sm text-gray-500">Programming Student</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+        
         <section id="contact" class="py-20 bg-gray-50">
-             <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-                <div class="md:pr-8">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Ready to Get Started?</h2>
-                    <p class="text-lg text-gray-600 mb-8">Take the first step towards academic excellence. Book a free, no-obligation demo class to experience our teaching style firsthand. We're happy to answer any questions you may have.</p>
-                    <div class="space-y-6">
-                        <div class="flex items-start">
-                             <i class="fas fa-phone h-6 w-6 text-emerald-600 mr-4 mt-1"></i>
-                             <div>
-                                 <h4 class="font-bold text-lg">Call Us</h4>
-                                 <p class="text-gray-600">+91 8123054408</p>
-                             </div>
+             <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="md:pr-8">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Ready to Get Started?</h2>
+                        <p class="text-lg text-gray-600 mb-8">Book a free, no-obligation demo class to experience our teaching style firsthand. We're happy to answer any questions you may have.</p>
                         </div>
-                        <div class="flex items-start">
-                             <i class="fas fa-envelope h-6 w-6 text-emerald-600 mr-4 mt-1"></i>
-                             <div>
-                                 <h4 class="font-bold text-lg">Email Us</h4>
-                                 <p class="text-gray-600">info@slearnacademy.com</p>
-                             </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-map-marker-alt h-6 w-6 text-emerald-600 mr-4 mt-1"></i>
-                            <div>
-                                <h4 class="font-bold text-lg">Our Location</h4>
-                                <p class="text-gray-600">Bengaluru, Karnataka, India</p>
-                            </div>
-                       </div>
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold mb-6 text-center">Book Your Free Demo</h3>
+                        <form id="contact-form" action="https://formspree.io/f/mkgvvkle" method="POST">
+                            <button type="submit" class="w-full bg-emerald-600 text-white px-6 py-3 rounded-md font-semibold cta-button">Submit Inquiry</button>
+                        </form>
                     </div>
-                </div>
-                <div class="bg-white p-8 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-bold mb-6 text-center">Book Your Free Demo</h3>
-                    <form id="contact-form" action="https://formspree.io/f/mkgvvkle" method="POST">
-                        <div class="mb-4">
-                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-                            <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500">
-                        </div>
-                        <div class="mb-4">
-                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                            <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500">
-                        </div>
-                         <div class="mb-4">
-                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message (e.g., "Interested in a demo for 8th Grade Science")</label>
-                            <textarea id="message" name="message" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500"></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-emerald-600 text-white px-6 py-3 rounded-md font-semibold cta-button">Submit Inquiry</button>
-                    </form>
                 </div>
             </div>
         </section>
@@ -300,15 +181,13 @@
             <div class="grid md:grid-cols-4 gap-8 mb-8">
                 <div class="col-span-1 md:col-span-2">
                     <h3 class="text-xl font-bold mb-4">SLearn Academy</h3>
-                    <p class="text-gray-400">Your trusted partner in academic excellence and future-ready skills.</p>
+                    <p class="text-gray-400">Your trusted partner in academic excellence.</p>
                 </div>
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
                     <ul class="space-y-2">
                         <li><a href="#mission" class="text-gray-400 hover:text-white">Our Mission</a></li>
                         <li><a href="#courses" class="text-gray-400 hover:text-white">Courses</a></li>
-                        <li><a href="#tutors" class="text-gray-400 hover:text-white">Our Tutors</a></li>
-                        <li><a href="#contact" class="text-gray-400 hover:text-white">Contact</a></li>
                     </ul>
                 </div>
                 <div>
@@ -317,16 +196,15 @@
                         <li><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white">Terms of Service</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white">Refund Policy</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Disclaimer</a></li>
                     </ul>
                 </div>
             </div>
             <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
                 <div class="text-gray-500 text-sm text-center md:text-left">
-                    <p>&copy; 2025 SLearn Academy. All Rights Reserved. Bengaluru, India.</p>
+                    <p>&copy; 2025 SLearn Academy. All Rights Reserved.</p>
                 </div>
-                <div class="flex space-x-4 mt-6 md:mt-0">
-                    <h3 class="text-lg font-semibold mr-4">Connect With Us:</h3>
+                <div class="flex items-center space-x-4 mt-6 md:mt-0">
+                    <h3 class="text-md font-semibold">Connect With Us:</h3>
                     <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
                     <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter fa-lg"></i></a>
                     <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin-in fa-lg"></i></a>
@@ -338,25 +216,20 @@
 
     <div id="payment-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden modal-backdrop">
         <div class="bg-white p-8 rounded-lg shadow-xl w-full max-w-sm text-center modal-content" id="payment-modal-content">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="text-xl font-bold text-gray-800" id="modal-course-name">Course Name</h3>
-                <button data-close-modal="payment-modal" class="text-gray-500 hover:text-gray-800 text-3xl leading-none">&times;</button>
-            </div>
-            <p class="text-gray-600 mb-4">Scan the QR code below with any UPI app to pay</p>
-            <div id="qrCodeContainer" class="mb-4"></div>
+            <button data-close-modal="payment-modal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-3xl leading-none">&times;</button>
+            <h3 class="text-xl font-bold text-gray-800 mb-4" id="modal-course-name">Course Name</h3>
+            <p class="text-gray-600 mb-4">Scan the QR code below to pay</p>
+            <div id="qrCodeContainer" class="mb-4 inline-block"></div>
             <p class="font-semibold">Amount: <span id="modal-course-price" class="text-emerald-600"></span></p>
-            <p class="text-sm text-gray-500 mt-2">UPI ID: dr.ait@ybl</p>
         </div>
     </div>
     
     <div id="contact-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden modal-backdrop">
-        <div class="bg-white p-10 rounded-lg shadow-xl w-full max-w-md text-center modal-content" id="contact-modal-content">
-            <div class="flex justify-end">
-                 <button data-close-modal="contact-modal" class="text-gray-500 hover:text-gray-800 text-3xl leading-none">&times;</button>
-            </div>
+        <div class="bg-white p-10 rounded-lg shadow-xl w-full max-w-md text-center modal-content relative" id="contact-modal-content">
+            <button data-close-modal="contact-modal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-3xl leading-none">&times;</button>
             <i class="fas fa-phone-alt text-5xl text-emerald-500 mb-6"></i>
             <h3 class="text-2xl font-bold text-gray-800 mb-2">Contact Us</h3>
-            <p class="text-gray-600 mb-6">For admissions or any queries, please call us directly.</p>
+            <p class="text-gray-600 mb-6">For admissions or any queries, call us directly.</p>
             <a href="tel:+918123054408" class="text-4xl font-bold text-gray-900 tracking-wider hover:text-emerald-600 transition-colors">+91 8123054408</a>
         </div>
     </div>
@@ -364,26 +237,28 @@
     <script>
         // --- Countdown Timer ---
         const countdownElement = document.getElementById('countdown-timer');
-        let fiveDaysFromNow = new Date().getTime() + (5 * 24 * 60 * 60 * 1000);
-        let countdownInterval = setInterval(() => {
-            let now = new Date().getTime();
-            let distance = fiveDaysFromNow - now;
-            let days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-            if (distance < 0) {
-                clearInterval(countdownInterval);
-                document.getElementById('offer-banner').innerHTML = "Offer has ended!";
-            }
-        }, 1000);
+        if (countdownElement) {
+            let fiveDaysFromNow = new Date().getTime() + (5 * 24 * 60 * 60 * 1000);
+            let countdownInterval = setInterval(() => {
+                let now = new Date().getTime();
+                let distance = fiveDaysFromNow - now;
+                let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+                if (distance < 0) {
+                    clearInterval(countdownInterval);
+                    document.getElementById('offer-banner').innerHTML = "Offer has ended!";
+                }
+            }, 1000);
+        }
 
         // --- Generic Modal Logic ---
         function setupModal(modalId, openBtnId) {
             const modal = document.getElementById(modalId);
-            const modalContent = document.getElementById(`${modalId}-content`);
             const openBtn = document.getElementById(openBtnId);
+            const modalContent = document.getElementById(`${modalId}-content`);
             
             function openModal() {
                 modal.classList.remove('hidden');
@@ -399,27 +274,21 @@
                 }, 200);
             }
 
-            if(openBtn) {
-                openBtn.addEventListener('click', openModal);
-            }
+            if(openBtn) openBtn.addEventListener('click', openModal);
             
             modal.addEventListener('click', (e) => {
                 if (e.target === modal || e.target.closest(`[data-close-modal="${modalId}"]`)) {
                     closeModal();
                 }
             });
-
-            return { openModal, closeModal };
         }
 
-        // Setup Contact Modal
+        // Setup Modals
         setupModal('contact-modal', 'contact-us-btn');
+        setupModal('payment-modal'); // No button needed, opened via JS below
 
         // --- Payment Modal & QR Code Logic ---
-        const paymentModal = document.getElementById('payment-modal');
-        const paymentModalContent = document.getElementById('payment-modal-content');
         const buyNowBtns = document.querySelectorAll('.buy-now-btn');
-        
         buyNowBtns.forEach(button => {
             button.addEventListener('click', () => {
                 const courseName = button.dataset.courseName;
@@ -434,22 +303,15 @@
                 qrCodeContainer.innerHTML = '';
                 new QRCode(qrCodeContainer, { text: upiLink, width: 200, height: 200 });
 
+                // Manually open the payment modal
+                const paymentModal = document.getElementById('payment-modal');
+                const paymentModalContent = document.getElementById('payment-modal-content');
                 paymentModal.classList.remove('hidden');
                 setTimeout(() => {
                     paymentModalContent.classList.remove('scale-95', 'opacity-0');
                 }, 10);
             });
         });
-        
-        paymentModal.addEventListener('click', (e) => {
-            if (e.target === paymentModal || e.target.closest(`[data-close-modal="payment-modal"]`)) {
-                 paymentModalContent.classList.add('scale-95', 'opacity-0');
-                setTimeout(() => {
-                     paymentModal.classList.add('hidden');
-                }, 200);
-            }
-        });
-
     </script>
 </body>
 </html>
